@@ -42,13 +42,13 @@ def getPrincipalDirections(
 
     n_tuples = field.GetNumberOfTuples()
 
-    farray_Lmin = cbl.createFloatArray('Lmin', 1, n_tuples)
-    farray_Lmid = cbl.createFloatArray('Lmid', 1, n_tuples)
-    farray_Lmax = cbl.createFloatArray('Lmax', 1, n_tuples)
+    farray_Lmin = myvtk.createFloatArray('Lmin', 1, n_tuples)
+    farray_Lmid = myvtk.createFloatArray('Lmid', 1, n_tuples)
+    farray_Lmax = myvtk.createFloatArray('Lmax', 1, n_tuples)
 
-    farray_Vmin = cbl.createFloatArray('Vmin', 3, n_tuples)
-    farray_Vmid = cbl.createFloatArray('Vmid', 3, n_tuples)
-    farray_Vmax = cbl.createFloatArray('Vmax', 3, n_tuples)
+    farray_Vmin = myvtk.createFloatArray('Vmin', 3, n_tuples)
+    farray_Vmid = myvtk.createFloatArray('Vmid', 3, n_tuples)
+    farray_Vmax = myvtk.createFloatArray('Vmax', 3, n_tuples)
 
     mat = numpy.empty((3,3))
     if (field_storage == "vec"):

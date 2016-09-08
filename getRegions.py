@@ -35,7 +35,7 @@ def getRegionsForBiV(
      generic_cell,
      cellId_endLV,
      subId,
-     dist_endLV) = cbl.getCellLocator(
+     dist_endLV) = myvtk.getCellLocator(
          mesh=pdata_endLV,
          verbose=verbose-1)
     (cell_locator_endRV,
@@ -43,7 +43,7 @@ def getRegionsForBiV(
      generic_cell,
      cellId_endRV,
      subId,
-     dist_endRV) = cbl.getCellLocator(
+     dist_endRV) = myvtk.getCellLocator(
          mesh=pdata_endRV,
          verbose=verbose-1)
     (cell_locator_epi,
@@ -51,13 +51,13 @@ def getRegionsForBiV(
      generic_cell,
      cellId_epi,
      subId,
-     dist_epi) = cbl.getCellLocator(
+     dist_epi) = myvtk.getCellLocator(
          mesh=pdata_epi,
          verbose=verbose-1)
 
     n_points = points.GetNumberOfPoints()
 
-    iarray_region = cbl.createIntArray("region_id", 1, n_points)
+    iarray_region = myvtk.createIntArray("region_id", 1, n_points)
 
     point = numpy.empty(3)
     for k_point in range(n_points):
@@ -113,7 +113,7 @@ def addRegionsToBiV(
         verbose=verbose-1)
     ugrid_mesh.GetPointData().AddArray(iarray_region)
 
-    cell_centers = cbl.getCellCenters(
+    cell_centers = myvtk.getCellCenters(
         mesh=ugrid_mesh,
         verbose=verbose-1)
     iarray_region = getRegionsForBiV(

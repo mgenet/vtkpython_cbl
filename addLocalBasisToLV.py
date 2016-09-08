@@ -33,11 +33,11 @@ if (__name__ == "__main__"):
     parser.add_argument('-v', '--verbose', type=int, default=1)
     args = parser.parse_args()
 
-    ugrid_mesh = cbl.readUGrid(
+    ugrid_mesh = myvtk.readUGrid(
         filename=args.mesh_filename,
         verbose=args.verbose)
 
-    myvtk.addCartesianCoordinates(
+    cbl.addCartesianCoordinates(
         ugrid=ugrid_mesh,
         verbose=args.verbose)
 
@@ -46,33 +46,33 @@ if (__name__ == "__main__"):
     if (args.epi_filename == None):
         args.epi_filename = args.mesh_filename.replace("LV", "EpiLV").replace(".vtk", ".stl").replace(".vtu", ".stl")
 
-    pdata_end = cbl.readSTL(
+    pdata_end = myvtk.readSTL(
         filename=args.end_filename,
-        verbose=args.verbose)
-    pdata_epi = cbl.readSTL(
+        verbose=args.verbose+1)
+    pdata_epi = myvtk.readSTL(
         filename=args.epi_filename,
-        verbose=args.verbose)
+        verbose=args.verbose+1)
 
     if (args.getABPointsFrom == "BoundsAndCenter"):
-        points_AB = myvtk.getABPointsFromBoundsAndCenter(
+        points_AB = cbl.getABPointsFromBoundsAndCenter(
             mesh=pdata_epi,
             AB=[0,0,1],
             verbose=args.verbose)
     else:
         assert (0)
 
-    myvtk.addCylindricalCoordinatesAndBasis(
+    cbl.addCylindricalCoordinatesAndBasis(
         ugrid=ugrid_mesh,
         points_AB=points_AB,
         verbose=args.verbose)
 
-    myvtk.addPseudoProlateSpheroidalCoordinatesAndBasisToLV(
+    cbl.addPseudoProlateSpheroidalCoordinatesAndBasisToLV(
         ugrid=ugrid_mesh,
         pdata_end=pdata_end,
         pdata_epi=pdata_epi,
         verbose=args.verbose)
 
-    myvtk.addSectorsToLV(
+    cbl.addSectorsToLV(
         ugrid_mesh=ugrid_mesh,
         n_r=args.n_sectors_r,
         n_c=args.n_sectors_c,
@@ -81,7 +81,7 @@ if (__name__ == "__main__"):
 
     filename = args.mesh_filename.replace(".vtk", "-WithLocalBasis.vtk").replace(".vtu", "-WithLocalBasis.vtu")
 
-    cbl.writeUGrid(
+    myvtk.writeUGrid(
         ugrid=ugrid_mesh,
         filename=filename,
         verbose=args.verbose)

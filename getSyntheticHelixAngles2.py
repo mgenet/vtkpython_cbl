@@ -51,7 +51,7 @@ def getSyntheticHelixAngles2(
     assert (farray_ll.GetNumberOfTuples() == n_tuples)
 
     if (farray_angle_helix is None):
-        farray_angle_helix = cbl.createFloatArray(
+        farray_angle_helix = myvtk.createFloatArray(
             name="angle_helix",
             n_components=1,
             n_tuples=n_tuples)

@@ -31,7 +31,7 @@ def getSectorsForLV(
 
     n_cells = farray_rr.GetNumberOfTuples()
 
-    iarray_sector = cbl.createIntArray("sector_id", 1, n_cells)
+    iarray_sector = myvtk.createIntArray("sector_id", 1, n_cells)
 
     for k_cell in range(n_cells):
         if (iarray_part_id is not None) and (int(iarray_part_id.GetTuple1(k_cell)) > 0):
@@ -95,7 +95,7 @@ def getSectorsForBiV(
     assert (farray_cc.GetNumberOfTuples() == n_cells)
     assert (farray_ll.GetNumberOfTuples() == n_cells)
 
-    iarray_sector = cbl.createIntArray("sector_id", 1, n_cells)
+    iarray_sector = myvtk.createIntArray("sector_id", 1, n_cells)
 
     for k_cell in range(n_cells):
         if (iarray_part_id is not None) and (int(iarray_part_id.GetTuple1(k_cell)) > 0):

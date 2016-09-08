@@ -25,9 +25,9 @@ def readAbaqusFibersFromINP(
 
     mypy.my_print(verbose, "*** readAbaqusFibersFromINP: "+filename+" ***")
 
-    eF_array = cbl.createFloatArray('eF', 3)
-    eS_array = cbl.createFloatArray('eS', 3)
-    eN_array = cbl.createFloatArray('eN', 3)
+    eF_array = myvtk.createFloatArray('eF', 3)
+    eS_array = myvtk.createFloatArray('eS', 3)
+    eN_array = myvtk.createFloatArray('eN', 3)
 
     file = open(filename, 'r')
     file.readline()

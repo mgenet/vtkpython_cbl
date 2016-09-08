@@ -38,7 +38,7 @@ def splitDomainBetweenEndoAndEpi(
     #mypy.my_print(verbose-1, "origin = "+str(origin))
 
     (pdata_domain,
-     cap) = cbl.getClippedPDataUsingPlane(
+     cap) = myvtk.getClippedPDataUsingPlane(
          pdata_mesh=pdata_domain,
          plane_O=origin,
          plane_N=[0,0,1],
@@ -66,7 +66,7 @@ def splitDomainBetweenEndoAndEpi(
     pdata1 = connectivity1.GetOutput()
     assert (pdata1.GetNumberOfPoints())
 
-    if (cbl.getPDataSurfaceArea(pdata0,0) < cbl.getPDataSurfaceArea(pdata1,0)):
+    if (myvtk.getPDataSurfaceArea(pdata0,0) < myvtk.getPDataSurfaceArea(pdata1,0)):
         return pdata0, pdata1
     else:
         return pdata1, pdata0
@@ -87,22 +87,22 @@ if (__name__ == "__main__"):
     if (args.epiLV_filename is None):
         args.epiLV_filename = args.domain_filename.replace("LV", "EpiLV")
 
-    pdata_domain = cbl.readSTL(
+    pdata_domain = myvtk.readSTL(
         filename=args.domain_filename,
         verbose=args.verbose)
 
     (pdata_end,
-     pdata_epi) = myvtk.splitDomainBetweenEndoAndEpi(
+     pdata_epi) = cbl.splitDomainBetweenEndoAndEpi(
          pdata_domain=pdata_domain,
          r=args.r,
          verbose=args.verbose)
 
-    cbl.writeSTL(
+    myvtk.writeSTL(
         pdata=pdata_end,
         filename=args.endLV_filename,
         verbose=args.verbose)
 
-    cbl.writeSTL(
+    myvtk.writeSTL(
         pdata=pdata_epi,
         filename=args.epiLV_filename,
         verbose=args.verbose)

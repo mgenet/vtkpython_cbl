@@ -34,7 +34,7 @@ def getHelixAngles(
     assert (farray_eLL.GetNumberOfTuples() == n_tuples)
     assert (farray_eF.GetNumberOfTuples() == n_tuples)
 
-    farray_angle_helix = cbl.createFloatArray("angle_helix", 1, n_tuples)
+    farray_angle_helix = myvtk.createFloatArray("angle_helix", 1, n_tuples)
 
     eRR = numpy.empty(3)
     eCC = numpy.empty(3)

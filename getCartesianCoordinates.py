@@ -41,9 +41,9 @@ def getCartesianCoordinates(
     if (verbose >= 2): print "zmax = "+str(zmax)
     if (verbose >= 2): print "dz = "+str(dz)
 
-    farray_xx = cbl.createFloatArray("xx", 1, n_points)
-    farray_yy = cbl.createFloatArray("yy", 1, n_points)
-    farray_zz = cbl.createFloatArray("zz", 1, n_points)
+    farray_xx = myvtk.createFloatArray("xx", 1, n_points)
+    farray_yy = myvtk.createFloatArray("yy", 1, n_points)
+    farray_zz = myvtk.createFloatArray("zz", 1, n_points)
 
     point = numpy.empty(3)
     for k_point in xrange(n_points):
@@ -83,7 +83,7 @@ def addCartesianCoordinates(
     ugrid.GetPointData().AddArray(farray_yy)
     ugrid.GetPointData().AddArray(farray_zz)
 
-    cell_centers = cbl.getCellCenters(
+    cell_centers = myvtk.getCellCenters(
         mesh=ugrid,
         verbose=verbose-1)
     (farray_xx,

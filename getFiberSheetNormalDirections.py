@@ -37,9 +37,9 @@ def getFiberSheetNormalDirections(
 
     n_tuples = farray_helix.GetNumberOfTuples()
 
-    farray_eF = cbl.createFloatArray("eF", 3, n_tuples)
-    farray_eS = cbl.createFloatArray("eS", 3, n_tuples)
-    farray_eN = cbl.createFloatArray("eN", 3, n_tuples)
+    farray_eF = myvtk.createFloatArray("eF", 3, n_tuples)
+    farray_eS = myvtk.createFloatArray("eS", 3, n_tuples)
+    farray_eN = myvtk.createFloatArray("eN", 3, n_tuples)
 
     eRR = numpy.empty(3)
     eCC = numpy.empty(3)

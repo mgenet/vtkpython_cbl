@@ -97,13 +97,13 @@ if (__name__ == "__main__"):
     parser.add_argument('-v', '--verbose', type=int, default=1)
     args = parser.parse_args()
 
-    pdata_endLV = cbl.readSTL(
+    pdata_endLV = myvtk.readSTL(
         filename=args.endLV_filename,
         verbose=args.verbose)
-    pdata_endRV = cbl.readSTL(
+    pdata_endRV = myvtk.readSTL(
         filename=endRV_filename,
         verbose=args.verbose)
-    pdata_epi = cbl.readSTL(
+    pdata_epi = myvtk.readSTL(
         filename=args.epi_filename,
         verbose=args.verbose)
 
@@ -111,29 +111,29 @@ if (__name__ == "__main__"):
      clipped_pdata_endRV,
      clipped_pdata_epi,
      clipped_valM,
-     clipped_valP) = myvtk.clipSurfacesForFullBiVMesh(
+     clipped_valP) = cbl.clipSurfacesForFullBiVMesh(
         pdata_endLV=pdata_endLV,
         pdata_endRV=pdata_endRV,
         pdata_epi=pdata_epi,
         verbose=args.verbose)
 
-    cbl.writeSTL(
+    myvtk.writeSTL(
         pdata=clipped_pdata_endLV,
         filename="endLV.stl",
         verbose=args.verbose)
-    cbl.writeSTL(
+    myvtk.writeSTL(
         pdata=clipped_pdata_endRV,
         filename="endRV.stl",
         verbose=args.verbose)
-    cbl.writeSTL(
+    myvtk.writeSTL(
         pdata=clipped_pdata_epi,
         filename="epi.stl",
         verbose=args.verbose)
-    cbl.writeSTL(
+    myvtk.writeSTL(
         pdata=clipped_pdata_valM,
         filename="valM.stl",
         verbose=args.verbose)
-    cbl.writeSTL(
+    myvtk.writeSTL(
         pdata=clipped_pdata_valP,
         filename="valP.stl",
         verbose=args.verbose)

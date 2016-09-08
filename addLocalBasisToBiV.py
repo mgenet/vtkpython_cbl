@@ -49,17 +49,17 @@ if (__name__ == "__main__"):
     if (args.epi_filename == None):
         args.epi_filename = args.mesh_filename.replace("BiV", "Epi").replace(".vtk", ".stl").replace(".vtu", ".stl")
 
-    pdata_endLV = cbl.readSTL(
+    pdata_endLV = myvtk.readSTL(
         filename=args.endLV_filename,
         verbose=args.verbose)
-    pdata_endRV = cbl.readSTL(
+    pdata_endRV = myvtk.readSTL(
         filename=args.endRV_filename,
         verbose=args.verbose)
-    pdata_epi = cbl.readSTL(
+    pdata_epi = myvtk.readSTL(
         filename=args.epi_filename,
         verbose=args.verbose)
 
-    myvtk.addRegionsToBiV(
+    cbl.addRegionsToBiV(
         ugrid_mesh=ugrid_mesh,
         pdata_endLV=pdata_endLV,
         pdata_endRV=pdata_endRV,
@@ -67,26 +67,26 @@ if (__name__ == "__main__"):
         verbose=args.verbose)
 
     if (args.getABPointsFrom == "BoundsAndCenter"):
-        points_AB = myvtk.getABPointsFromBoundsAndCenter(
+        points_AB = cbl.getABPointsFromBoundsAndCenter(
             mesh=pdata_endLV,
             AB=[0,0,1],
             verbose=args.verbose)
     else:
         assert (0)
 
-    myvtk.addCylindricalCoordinatesAndBasis(
+    cbl.addCylindricalCoordinatesAndBasis(
         ugrid=ugrid_mesh,
         points_AB=points_AB,
         verbose=args.verbose)
 
-    myvtk.addPseudoProlateSpheroidalCoordinatesAndBasisToBiV(
+    cbl.addPseudoProlateSpheroidalCoordinatesAndBasisToBiV(
         ugrid=ugrid_mesh,
         pdata_endLV=pdata_endLV,
         pdata_endRV=pdata_endRV,
         pdata_epi=pdata_epi,
         verbose=args.verbose)
 
-    myvtk.addSectorsToBiV(
+    cbl.addSectorsToBiV(
         ugrid_mesh=ugrid_mesh,
         n_r=args.n_sectors_r,
         n_c=args.n_sectors_c,
@@ -95,7 +95,7 @@ if (__name__ == "__main__"):
 
     filename = args.mesh_filename.replace(".vtk", "-WithLocalBasis.vtk").replace(".vtu", "-WithLocalBasis.vtu")
 
-    cbl.writeUGrid(
+    myvtk.writeUGrid(
         ugrid=ugrid_mesh,
         filename=filename,
         verbose=args.verbose)

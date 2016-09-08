@@ -62,17 +62,17 @@ def getSyntheticHelixTransverseSheetAngles(
     n_tuples = farray_rr.GetNumberOfTuples()
 
     if (farray_angle_helix is None):
-        farray_angle_helix = cbl.createFloatArray(
+        farray_angle_helix = myvtk.createFloatArray(
             "angle_helix",
             1,
             n_tuples)
     if (farray_angle_trans is None):
-        farray_angle_trans = cbl.createFloatArray(
+        farray_angle_trans = myvtk.createFloatArray(
             "angle_trans",
             1,
             n_tuples)
     if (farray_angle_sheet is None):
-        farray_angle_sheet = cbl.createFloatArray(
+        farray_angle_sheet = myvtk.createFloatArray(
             "angle_sheet",
             1,
             n_tuples)

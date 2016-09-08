@@ -47,13 +47,13 @@ def getCylindricalCoordinatesAndBasis(
 
     n_points = points.GetNumberOfPoints()
 
-    farray_r = cbl.createFloatArray("r", 1, n_points)
-    farray_c = cbl.createFloatArray("c", 1, n_points)
-    farray_l = cbl.createFloatArray("l", 1, n_points)
+    farray_r = myvtk.createFloatArray("r", 1, n_points)
+    farray_c = myvtk.createFloatArray("c", 1, n_points)
+    farray_l = myvtk.createFloatArray("l", 1, n_points)
 
-    farray_eR = cbl.createFloatArray("eR", 3, n_points)
-    farray_eC = cbl.createFloatArray("eC", 3, n_points)
-    farray_eL = cbl.createFloatArray("eL", 3, n_points)
+    farray_eR = myvtk.createFloatArray("eR", 3, n_points)
+    farray_eC = myvtk.createFloatArray("eC", 3, n_points)
+    farray_eL = myvtk.createFloatArray("eL", 3, n_points)
 
     point = numpy.empty(3)
     for k_point in xrange(n_points):
@@ -116,7 +116,7 @@ def addCylindricalCoordinatesAndBasis(
     ugrid.GetPointData().AddArray(farray_eC)
     ugrid.GetPointData().AddArray(farray_eL)
 
-    cell_centers = cbl.getCellCenters(
+    cell_centers = myvtk.getCellCenters(
         mesh=ugrid,
         verbose=verbose-1)
     (farray_r,

@@ -34,10 +34,10 @@ def getPseudoProlateSpheroidalCoordinatesAndBasisForLV(
 
     mypy.my_print(verbose-1, "Computing surface cell normals...")
 
-    pdata_end = cbl.addPDataNormals(
+    pdata_end = myvtk.addPDataNormals(
         pdata=pdata_end,
         verbose=verbose-1)
-    pdata_epi = cbl.addPDataNormals(
+    pdata_epi = myvtk.addPDataNormals(
         pdata=pdata_epi,
         verbose=verbose-1)
 
@@ -48,7 +48,7 @@ def getPseudoProlateSpheroidalCoordinatesAndBasisForLV(
      generic_cell,
      cellId_end,
      subId,
-     dist_end) = cbl.getCellLocator(
+     dist_end) = myvtk.getCellLocator(
          mesh=pdata_end,
          verbose=verbose-1)
     (cell_locator_epi,
@@ -56,7 +56,7 @@ def getPseudoProlateSpheroidalCoordinatesAndBasisForLV(
      generic_cell,
      cellId_epi,
      subId,
-     dist_epi) = cbl.getCellLocator(
+     dist_epi) = myvtk.getCellLocator(
          mesh=pdata_epi,
          verbose=verbose-1)
 
@@ -64,13 +64,13 @@ def getPseudoProlateSpheroidalCoordinatesAndBasisForLV(
 
     n_points = points.GetNumberOfPoints()
 
-    farray_rr = cbl.createFloatArray("rr", 1, n_points)
-    farray_cc = cbl.createFloatArray("cc", 1, n_points)
-    farray_ll = cbl.createFloatArray("ll", 1, n_points)
+    farray_rr = myvtk.createFloatArray("rr", 1, n_points)
+    farray_cc = myvtk.createFloatArray("cc", 1, n_points)
+    farray_ll = myvtk.createFloatArray("ll", 1, n_points)
 
-    farray_eRR = cbl.createFloatArray("eRR", 3, n_points)
-    farray_eCC = cbl.createFloatArray("eCC", 3, n_points)
-    farray_eLL = cbl.createFloatArray("eLL", 3, n_points)
+    farray_eRR = myvtk.createFloatArray("eRR", 3, n_points)
+    farray_eCC = myvtk.createFloatArray("eCC", 3, n_points)
+    farray_eLL = myvtk.createFloatArray("eLL", 3, n_points)
 
     if (n_points == 0):
         return (farray_rr,
@@ -186,7 +186,7 @@ def addPseudoProlateSpheroidalCoordinatesAndBasisToLV(
     ugrid.GetPointData().AddArray(farray_eCC)
     ugrid.GetPointData().AddArray(farray_eLL)
 
-    cell_centers = cbl.getCellCenters(
+    cell_centers = myvtk.getCellCenters(
         mesh=ugrid,
         verbose=verbose-1)
     (farray_rr,
@@ -228,13 +228,13 @@ def getPseudoProlateSpheroidalCoordinatesAndBasisForBiV(
 
     mypy.my_print(verbose-1, "Computing surface cell normals...")
 
-    pdata_endLV = cbl.addPDataNormals(
+    pdata_endLV = myvtk.addPDataNormals(
         pdata=pdata_endLV,
         verbose=verbose-1)
-    pdata_endRV = cbl.addPDataNormals(
+    pdata_endRV = myvtk.addPDataNormals(
         pdata=pdata_endRV,
         verbose=verbose-1)
-    pdata_epi = cbl.addPDataNormals(
+    pdata_epi = myvtk.addPDataNormals(
         pdata=pdata_epi,
         verbose=verbose-1)
 
@@ -245,7 +245,7 @@ def getPseudoProlateSpheroidalCoordinatesAndBasisForBiV(
      generic_cell,
      cellId_endLV,
      subId,
-     dist_endLV) = cbl.getCellLocator(
+     dist_endLV) = myvtk.getCellLocator(
          mesh=pdata_endLV,
          verbose=verbose-1)
     (cell_locator_endRV,
@@ -253,7 +253,7 @@ def getPseudoProlateSpheroidalCoordinatesAndBasisForBiV(
     generic_cell,
     cellId_endRV,
     subId,
-    dist_endRV) = cbl.getCellLocator(
+    dist_endRV) = myvtk.getCellLocator(
         mesh=pdata_endRV,
         verbose=verbose-1)
     (cell_locator_epi,
@@ -261,7 +261,7 @@ def getPseudoProlateSpheroidalCoordinatesAndBasisForBiV(
      generic_cell,
      cellId_epi,
      subId,
-     dist_epi) = cbl.getCellLocator(
+     dist_epi) = myvtk.getCellLocator(
          mesh=pdata_epi,
          verbose=verbose-1)
 
@@ -269,13 +269,13 @@ def getPseudoProlateSpheroidalCoordinatesAndBasisForBiV(
 
     n_points = points.GetNumberOfPoints()
 
-    farray_rr = cbl.createFloatArray("rr", 1, n_points)
-    farray_cc = cbl.createFloatArray("cc", 1, n_points)
-    farray_ll = cbl.createFloatArray("ll", 1, n_points)
+    farray_rr = myvtk.createFloatArray("rr", 1, n_points)
+    farray_cc = myvtk.createFloatArray("cc", 1, n_points)
+    farray_ll = myvtk.createFloatArray("ll", 1, n_points)
 
-    farray_eRR = cbl.createFloatArray("eRR", 3, n_points)
-    farray_eCC = cbl.createFloatArray("eCC", 3, n_points)
-    farray_eLL = cbl.createFloatArray("eLL", 3, n_points)
+    farray_eRR = myvtk.createFloatArray("eRR", 3, n_points)
+    farray_eCC = myvtk.createFloatArray("eCC", 3, n_points)
+    farray_eLL = myvtk.createFloatArray("eLL", 3, n_points)
 
     c_lst_FWLV = numpy.array([farray_c.GetTuple1(k_point) for k_point in xrange(n_points) if (iarray_regions.GetTuple1(k_point) == 0)])
     (c_avg_FWLV, c_std_FWLV) = myvtk.getMeanStddevAngles(
@@ -485,7 +485,7 @@ def addPseudoProlateSpheroidalCoordinatesAndBasisToBiV(
     ugrid.GetPointData().AddArray(farray_eCC)
     ugrid.GetPointData().AddArray(farray_eLL)
 
-    cell_centers = cbl.getCellCenters(
+    cell_centers = myvtk.getCellCenters(
         mesh=ugrid,
         verbose=verbose-1)
     (farray_rr,

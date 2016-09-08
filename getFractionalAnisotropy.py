@@ -27,9 +27,9 @@ def getFractionalAnisotropy(
 
     n_tuples = farray_e1.GetNumberOfTuples()
 
-    farray_FA   = cbl.createFloatArray("FA"   , 1, n_tuples)
-    farray_FA12 = cbl.createFloatArray("FA_12", 1, n_tuples)
-    farray_FA23 = cbl.createFloatArray("FA_23", 1, n_tuples)
+    farray_FA   = myvtk.createFloatArray("FA"   , 1, n_tuples)
+    farray_FA12 = myvtk.createFloatArray("FA_12", 1, n_tuples)
+    farray_FA23 = myvtk.createFloatArray("FA_23", 1, n_tuples)
 
     for k_tuple in xrange(n_tuples):
         e1 = farray_e1.GetTuple1(k_tuple)

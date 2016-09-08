@@ -29,10 +29,10 @@ def getSystolicStrainsFromEndDiastolicAndEndSystolicDeformationGradients(
     n_tuples = farray_F_dia.GetNumberOfTuples()
     assert (farray_F_sys.GetNumberOfTuples() == n_tuples)
 
-    farray_E_dia = cbl.createFloatArray('E_dia', 6, n_tuples)
-    farray_E_sys = cbl.createFloatArray('E_sys', 6, n_tuples)
-    farray_F_num = cbl.createFloatArray('F_num', 6, n_tuples)
-    farray_E_num = cbl.createFloatArray('E_num', 6, n_tuples)
+    farray_E_dia = myvtk.createFloatArray('E_dia', 6, n_tuples)
+    farray_E_sys = myvtk.createFloatArray('E_sys', 6, n_tuples)
+    farray_F_num = myvtk.createFloatArray('F_num', 6, n_tuples)
+    farray_E_num = myvtk.createFloatArray('E_num', 6, n_tuples)
 
     I = numpy.eye(3)
     E_vec = numpy.empty(6)

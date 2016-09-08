@@ -40,9 +40,9 @@ def getHelixTransverseSheetAngles2(
     assert (farray_eS.GetNumberOfTuples() == n_tuples)
     assert (farray_eN.GetNumberOfTuples() == n_tuples)
 
-    farray_angle_helix = cbl.createFloatArray("angle_helix", 1, n_tuples)
-    farray_angle_trans = cbl.createFloatArray("angle_trans", 1, n_tuples)
-    farray_angle_sheet = cbl.createFloatArray("angle_sheet", 1, n_tuples)
+    farray_angle_helix = myvtk.createFloatArray("angle_helix", 1, n_tuples)
+    farray_angle_trans = myvtk.createFloatArray("angle_trans", 1, n_tuples)
+    farray_angle_sheet = myvtk.createFloatArray("angle_sheet", 1, n_tuples)
 
     eRR = numpy.empty(3)
     eCC = numpy.empty(3)
