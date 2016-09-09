@@ -28,7 +28,7 @@ def getPseudoProlateSpheroidalCoordinatesAndBasisForLV(
         pdata_end,
         pdata_epi,
         iarray_part_id=None,
-        verbose=0):
+        verbose=1):
 
     mypy.my_print(verbose, "*** getPseudoProlateSpheroidalCoordinatesAndBasisForLV ***")
 
@@ -161,7 +161,7 @@ def addPseudoProlateSpheroidalCoordinatesAndBasisToLV(
         ugrid,
         pdata_end,
         pdata_epi,
-        verbose=0):
+        verbose=1):
 
     mypy.my_print(verbose, "*** addPseudoProlateSpheroidalCoordinatesAndBasisToLV ***")
 
@@ -222,7 +222,7 @@ def getPseudoProlateSpheroidalCoordinatesAndBasisForBiV(
         pdata_endRV,
         pdata_epi,
         iarray_part_id=None,
-        verbose=0):
+        verbose=1):
 
     mypy.my_print(verbose, "*** getPseudoProlateSpheroidalCoordinatesAndBasisForBiV ***")
 
@@ -458,7 +458,7 @@ def addPseudoProlateSpheroidalCoordinatesAndBasisToBiV(
         pdata_endLV,
         pdata_endRV,
         pdata_epi,
-        verbose=0):
+        verbose=1):
 
     mypy.my_print(verbose, "*** addPseudoProlateSpheroidalCoordinatesAndBasisToBiV ***")
 

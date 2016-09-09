@@ -25,7 +25,7 @@ def clipSurfacesForFullBiVMesh(
         pdata_endLV,
         pdata_endRV,
         pdata_epi,
-        verbose=0):
+        verbose=1):
 
     mypy.my_print(verbose, "*** clipSurfacesForFullBiVMesh ***")
 
@@ -97,15 +97,17 @@ if (__name__ == "__main__"):
     parser.add_argument('-v', '--verbose', type=int, default=1)
     args = parser.parse_args()
 
+    mypy.my_print(args.verbose, "*** clipSurfacesForFullBiVMesh ***")
+
     pdata_endLV = myvtk.readSTL(
         filename=args.endLV_filename,
-        verbose=args.verbose)
+        verbose=args.verbose-1)
     pdata_endRV = myvtk.readSTL(
         filename=endRV_filename,
-        verbose=args.verbose)
+        verbose=args.verbose-1)
     pdata_epi = myvtk.readSTL(
         filename=args.epi_filename,
-        verbose=args.verbose)
+        verbose=args.verbose-1)
 
     (clipped_pdata_endLV,
      clipped_pdata_endRV,
@@ -115,26 +117,26 @@ if (__name__ == "__main__"):
         pdata_endLV=pdata_endLV,
         pdata_endRV=pdata_endRV,
         pdata_epi=pdata_epi,
-        verbose=args.verbose)
+        verbose=args.verbose-1)
 
     myvtk.writeSTL(
         pdata=clipped_pdata_endLV,
         filename="endLV.stl",
-        verbose=args.verbose)
+        verbose=args.verbose-1)
     myvtk.writeSTL(
         pdata=clipped_pdata_endRV,
         filename="endRV.stl",
-        verbose=args.verbose)
+        verbose=args.verbose-1)
     myvtk.writeSTL(
         pdata=clipped_pdata_epi,
         filename="epi.stl",
-        verbose=args.verbose)
+        verbose=args.verbose-1)
     myvtk.writeSTL(
         pdata=clipped_pdata_valM,
         filename="valM.stl",
-        verbose=args.verbose)
+        verbose=args.verbose-1)
     myvtk.writeSTL(
         pdata=clipped_pdata_valP,
         filename="valP.stl",
-        verbose=args.verbose)
+        verbose=args.verbose-1)
 

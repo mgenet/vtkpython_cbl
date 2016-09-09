@@ -21,7 +21,7 @@ def writeFiberOrientationFileForGNUPlot(
         angles_end,
         angles_epi,
         filename,
-        verbose=0):
+        verbose=1):
 
     mypy.my_print(verbose, "*** writeFiberOrientationFileForGNUPlot ***")
 

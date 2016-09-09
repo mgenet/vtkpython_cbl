@@ -23,7 +23,7 @@ import vtkpython_cbl as cbl
 def getCylindricalCoordinatesAndBasis(
         points,
         points_AB,
-        verbose=0):
+        verbose=1):
 
     mypy.my_print(verbose, "*** getCylindricalCoordinatesAndBasis ***")
 
@@ -34,7 +34,7 @@ def getCylindricalCoordinatesAndBasis(
     points_AB.GetPoint(points_AB.GetNumberOfPoints()-1, point_B)
     eL  = point_B - point_A
     eL /= numpy.linalg.norm(eL)
-    if (verbose >= 2): print "eL =", eL
+    mypy.my_print(verbose-1, "eL ="+str(eL))
 
     point_C = point_A+numpy.array([1.,0.,0.])
     #point_C = numpy.empty(3)
@@ -57,11 +57,11 @@ def getCylindricalCoordinatesAndBasis(
 
     point = numpy.empty(3)
     for k_point in xrange(n_points):
-        if (verbose >= 2): print "k_point =", k_point
+        mypy.my_print(verbose-2, "k_point ="+str(k_point))
 
         points.GetPoint(k_point, point)
 
-        if (verbose >= 2): print "point =", point
+        mypy.my_print(verbose-2, "point ="+str(point))
 
         eR  = point - point_A
         eC  = numpy.cross(eL, eR)
@@ -94,7 +94,7 @@ def getCylindricalCoordinatesAndBasis(
 def addCylindricalCoordinatesAndBasis(
         ugrid,
         points_AB,
-        verbose=0):
+        verbose=1):
 
     mypy.my_print(verbose, "*** addCylindricalCoordinatesAndBasis ***")
 

@@ -21,7 +21,7 @@ import vtkpython_cbl as cbl
 
 def getCartesianCoordinates(
         points,
-        verbose=0):
+        verbose=1):
 
     mypy.my_print(verbose, "*** getCartesianCoordinates ***")
 
@@ -31,15 +31,15 @@ def getCartesianCoordinates(
     dx = xmax-xmin
     dy = ymax-ymin
     dz = zmax-zmin
-    if (verbose >= 2): print "xmin = "+str(xmin)
-    if (verbose >= 2): print "xmax = "+str(xmax)
-    if (verbose >= 2): print "dx = "+str(dx)
-    if (verbose >= 2): print "ymin = "+str(ymin)
-    if (verbose >= 2): print "ymax = "+str(ymax)
-    if (verbose >= 2): print "dy = "+str(dy)
-    if (verbose >= 2): print "zmin = "+str(zmin)
-    if (verbose >= 2): print "zmax = "+str(zmax)
-    if (verbose >= 2): print "dz = "+str(dz)
+    mypy.my_print(verbose-1, "xmin = "+str(xmin))
+    mypy.my_print(verbose-1, "xmax = "+str(xmax))
+    mypy.my_print(verbose-1, "dx = "+str(dx))
+    mypy.my_print(verbose-1, "ymin = "+str(ymin))
+    mypy.my_print(verbose-1, "ymax = "+str(ymax))
+    mypy.my_print(verbose-1, "dy = "+str(dy))
+    mypy.my_print(verbose-1, "zmin = "+str(zmin))
+    mypy.my_print(verbose-1, "zmax = "+str(zmax))
+    mypy.my_print(verbose-1, "dz = "+str(dz))
 
     farray_xx = myvtk.createFloatArray("xx", 1, n_points)
     farray_yy = myvtk.createFloatArray("yy", 1, n_points)
@@ -47,10 +47,10 @@ def getCartesianCoordinates(
 
     point = numpy.empty(3)
     for k_point in xrange(n_points):
-        if (verbose >= 2): print "k_point = "+str(k_point)
+        mypy.my_print(verbose-2, "k_point = "+str(k_point))
 
         points.GetPoint(k_point, point)
-        if (verbose >= 2): print "point = "+str(point)
+        mypy.my_print(verbose-2, "point = "+str(point))
 
         xx = (point[0] - xmin) / dx
         yy = (point[1] - ymin) / dy
@@ -68,7 +68,7 @@ def getCartesianCoordinates(
 
 def addCartesianCoordinates(
         ugrid,
-        verbose=0):
+        verbose=1):
 
     mypy.my_print(verbose, "*** addCartesianCoordinates ***")
 

@@ -29,7 +29,7 @@ def getFiberDirections(
         angles_in_degrees=True,
         use_new_definition=False,
         shuffle_vectors=False,
-        verbose=0):
+        verbose=1):
 
     mypy.my_print(verbose, "*** getFiberDirections ***")
 
@@ -95,7 +95,7 @@ def addFiberDirections(
         angles_in_degrees=True,
         use_new_definition=False,
         shuffle_vectors=False,
-        verbose=0):
+        verbose=1):
 
     mypy.my_print(verbose, "*** addFiberDirections ***")
 

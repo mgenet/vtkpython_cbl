@@ -22,7 +22,7 @@ import vtkpython_cbl as cbl
 def getSystolicStrainsFromEndDiastolicAndEndSystolicDeformationGradients(
         farray_F_dia,
         farray_F_sys,
-        verbose=0):
+        verbose=1):
 
     mypy.my_print(verbose, "*** getSystolicStrainsFromEndDiastolicAndEndSystolicDeformationGradients ***")
 

@@ -31,7 +31,7 @@ def getFiberSheetNormalDirections(
         angles_in_degrees=True,
         use_new_definition=False,
         shuffle_vectors=False,
-        verbose=True):
+        verbose=1):
 
     mypy.my_print(verbose, "*** getFiberSheetNormalDirections ***")
 
@@ -137,7 +137,7 @@ def addFiberSheetNormalDirections(
         angles_in_degrees=True,
         use_new_definition=False,
         shuffle_vectors=False,
-        verbose=0):
+        verbose=1):
 
     mypy.my_print(verbose, "*** addFiberSheetNormalDirections ***")
 

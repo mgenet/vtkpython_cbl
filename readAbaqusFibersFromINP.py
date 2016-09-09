@@ -21,7 +21,7 @@ import vtkpython_cbl as cbl
 
 def readAbaqusFibersFromINP(
         filename,
-        verbose=0):
+        verbose=1):
 
     mypy.my_print(verbose, "*** readAbaqusFibersFromINP: "+filename+" ***")
 

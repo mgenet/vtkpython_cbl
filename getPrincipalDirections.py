@@ -27,7 +27,7 @@ def getPrincipalDirections(
         farray_eRR=None,
         farray_eCC=None,
         farray_eLL=None,
-        verbose=0):
+        verbose=1):
 
     mypy.my_print(verbose, "*** getPrincipalDirections ***")
 
@@ -42,13 +42,13 @@ def getPrincipalDirections(
 
     n_tuples = field.GetNumberOfTuples()
 
-    farray_Lmin = myvtk.createFloatArray('Lmin', 1, n_tuples)
-    farray_Lmid = myvtk.createFloatArray('Lmid', 1, n_tuples)
-    farray_Lmax = myvtk.createFloatArray('Lmax', 1, n_tuples)
+    farray_Lmin = myvtk.createFloatArray("Lmin", 1, n_tuples)
+    farray_Lmid = myvtk.createFloatArray("Lmid", 1, n_tuples)
+    farray_Lmax = myvtk.createFloatArray("Lmax", 1, n_tuples)
 
-    farray_Vmin = myvtk.createFloatArray('Vmin', 3, n_tuples)
-    farray_Vmid = myvtk.createFloatArray('Vmid', 3, n_tuples)
-    farray_Vmax = myvtk.createFloatArray('Vmax', 3, n_tuples)
+    farray_Vmin = myvtk.createFloatArray("Vmin", 3, n_tuples)
+    farray_Vmid = myvtk.createFloatArray("Vmid", 3, n_tuples)
+    farray_Vmax = myvtk.createFloatArray("Vmax", 3, n_tuples)
 
     mat = numpy.empty((3,3))
     if (field_storage == "vec"):
@@ -71,18 +71,18 @@ def getPrincipalDirections(
             mypy.fvec9_to_mat33(vec, mat)
 
         if (numpy.linalg.norm(mat) > 1e-6):
-            #if (verbose): print + 'k_tuple =', k_tuple
+            #mypy.my_print(verbose-1, "k_tuple ="+str(k_tuple))
 
             vals, vecs = numpy.linalg.eig(mat)
-            #if (verbose): print + 'vals =', vals
-            #if (verbose): print + 'vecs =', vecs
-            #if (verbose): print + 'det =', numpy.linalg.det(vecs)
+            #mypy.my_print(verbose-1, "vals ="+str(vals))
+            #mypy.my_print(verbose-1, "vecs ="+str(vecs))
+            #mypy.my_print(verbose-1, "det ="+str(numpy.linalg.det(vecs)))
             idx = vals.argsort()
             vals = vals[idx]
             vecs = vecs[:,idx]
-            #if (verbose): print + 'vals =', vals
-            #if (verbose): print + 'vecs =', vecs
-            #if (verbose): print + 'det =', numpy.linalg.det(vecs)
+            #mypy.my_print(verbose-1, "vals ="+str(vals))
+            #mypy.my_print(verbose-1, "vecs ="+str(vecs))
+            #mypy.my_print(verbose-1, "det ="+str(numpy.linalg.det(vecs)))
 
             mat_Lmin = vals[0]
             mat_Lmid = vals[1]
@@ -126,7 +126,7 @@ def addPrincipalDirections(
         field_support="cell",
         field_storage="vec",
         orient=0,
-        verbose=0):
+        verbose=1):
 
     mypy.my_print(verbose, "*** addPrincipalDirections ***")
 

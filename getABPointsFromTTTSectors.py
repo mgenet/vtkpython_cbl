@@ -21,7 +21,7 @@ import vtkpython_cbl as cbl
 
 def getABPointsFromTTTSectors(
         ugrid_sectors,
-        verbose=0):
+        verbose=1):
 
     mypy.my_print(verbose, "*** getABPointsFromTTTSectors ***")
 

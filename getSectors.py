@@ -25,7 +25,7 @@ def getSectorsForLV(
         n_c=1,
         n_l=1,
         iarray_part_id=None,
-        verbose=0):
+        verbose=1):
 
     mypy.my_print(verbose, "*** getSectorsForLV ***")
 
@@ -59,7 +59,7 @@ def addSectorsToLV(
         n_r=1,
         n_c=1,
         n_l=1,
-        verbose=0):
+        verbose=1):
 
     mypy.my_print(verbose, "*** addSectorsToLV ***")
 
@@ -86,7 +86,7 @@ def getSectorsForBiV(
         n_c=[1]*3,
         n_l=[1]*3,
         iarray_part_id=None,
-        verbose=0):
+        verbose=1):
 
     mypy.my_print(verbose, "*** getSectorsForBiV ***")
 
@@ -132,7 +132,7 @@ def addSectorsToBiV(
         n_r=[1]*3,
         n_c=[1]*3,
         n_l=[1]*3,
-        verbose=0):
+        verbose=1):
 
     mypy.my_print(verbose, "*** addSectorsToBiV ***")
 

@@ -25,7 +25,7 @@ def writeFiberOrientationFileForAbaqus(
         eF_field_name="eF",
         eS_field_name="eS",
         sep=", ",
-        verbose=0):
+        verbose=1):
 
     mypy.my_print(verbose, "*** writeFiberOrientationFileForAbaqus ***")
 

@@ -28,7 +28,7 @@ def discretizeData(
         n_r,
         n_c,
         n_l,
-        verbose=True):
+        verbose=1):
 
     mypy.my_print(verbose, "*** discretizeData ***")
 
@@ -53,16 +53,16 @@ def discretizeData(
                 sel_r = [k_tuple for k_tuple in sel_c if (math.floor(n_r*farray_rr.GetTuple1(k_tuple)) == k_r)]
                 #print len(sel_r)
 
-                (m, s) = getMeanStddevAngles([farray_h.GetTuple1(k_tuple) for k_tuple in sel_r], verbose=False)
+                (m, s) = getMeanStddevAngles([farray_h.GetTuple1(k_tuple) for k_tuple in sel_r], verbose=0)
                 h[k_r, k_c, k_l] = m
 
-    if (verbose >= 2): print h
+    mypy.my_print(verbose-1, "h = "+str(h))
 
     return h
 
 def getSVD(
         h,
-        verbose=True):
+        verbose=1):
 
     mypy.my_print(verbose, "*** getSVD ***")
 
@@ -99,7 +99,7 @@ def getSVD(
 
 def getPOD(
         h,
-        verbose=True):
+        verbose=1):
 
     mypy.my_print(verbose, "*** getPOD ***")
 

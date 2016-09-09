@@ -22,7 +22,7 @@ def getSyntheticHelixAngles(
         helix_angle_end,
         helix_angle_epi,
         farray_angle_helix=None,
-        verbose=0):
+        verbose=1):
 
     mypy.my_print(verbose, "*** getSyntheticHelixAngles ***")
 
@@ -52,7 +52,7 @@ def addSyntheticHelixAngles(
         helix_angle_end,
         helix_angle_epi,
         type_of_support="cell",
-        verbose=0):
+        verbose=1):
 
     mypy.my_print(verbose, "*** addSyntheticHelixAngles ***")
 

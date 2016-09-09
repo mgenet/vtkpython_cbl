@@ -28,7 +28,7 @@ def getHelixTransverseSheetAngles(
         farray_eS,
         farray_eN,
         use_new_definition=False,
-        verbose=0):
+        verbose=1):
 
     mypy.my_print(verbose, "*** getHelixTransverseSheetAngles ***")
 
@@ -79,7 +79,7 @@ def addHelixTransverseSheetAngles(
         ugrid,
         type_of_support="cell",
         use_new_definition=False,
-        verbose=0):
+        verbose=1):
 
     mypy.my_print(verbose, "*** addHelixTransverseSheetAngles ***")
 

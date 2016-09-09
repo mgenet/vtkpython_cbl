@@ -22,7 +22,7 @@ import vtkpython_cbl as cbl
 def clipSurfacesForFullLVMesh(
         endo,
         epi,
-        verbose=0):
+        verbose=1):
 
     mypy.my_print(verbose, "*** clipSurfacesForFullLVMesh ***")
 

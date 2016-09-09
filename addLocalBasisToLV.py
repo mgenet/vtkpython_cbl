@@ -33,13 +33,15 @@ if (__name__ == "__main__"):
     parser.add_argument('-v', '--verbose', type=int, default=1)
     args = parser.parse_args()
 
+    mypy.my_print(args.verbose, "*** addLocalBasisToLV ***")
+
     ugrid_mesh = myvtk.readUGrid(
         filename=args.mesh_filename,
-        verbose=args.verbose)
+        verbose=args.verbose-1)
 
-    cbl.addCartesianCoordinates(
-        ugrid=ugrid_mesh,
-        verbose=args.verbose)
+    #cbl.addCartesianCoordinates(
+        #ugrid=ugrid_mesh,
+        #verbose=args.verbose-1)
 
     if (args.end_filename == None):
         args.end_filename = args.mesh_filename.replace("LV", "EndLV").replace(".vtk", ".stl").replace(".vtu", ".stl")
@@ -48,40 +50,40 @@ if (__name__ == "__main__"):
 
     pdata_end = myvtk.readSTL(
         filename=args.end_filename,
-        verbose=args.verbose+1)
+        verbose=args.verbose-1)
     pdata_epi = myvtk.readSTL(
         filename=args.epi_filename,
-        verbose=args.verbose+1)
+        verbose=args.verbose-1)
 
     if (args.getABPointsFrom == "BoundsAndCenter"):
         points_AB = cbl.getABPointsFromBoundsAndCenter(
             mesh=pdata_epi,
             AB=[0,0,1],
-            verbose=args.verbose)
+            verbose=args.verbose-1)
     else:
         assert (0)
 
-    cbl.addCylindricalCoordinatesAndBasis(
-        ugrid=ugrid_mesh,
-        points_AB=points_AB,
-        verbose=args.verbose)
+    #cbl.addCylindricalCoordinatesAndBasis(
+        #ugrid=ugrid_mesh,
+        #points_AB=points_AB,
+        #verbose=args.verbose-1)
 
     cbl.addPseudoProlateSpheroidalCoordinatesAndBasisToLV(
         ugrid=ugrid_mesh,
         pdata_end=pdata_end,
         pdata_epi=pdata_epi,
-        verbose=args.verbose)
+        verbose=args.verbose-1)
 
     cbl.addSectorsToLV(
         ugrid_mesh=ugrid_mesh,
         n_r=args.n_sectors_r,
         n_c=args.n_sectors_c,
         n_l=args.n_sectors_l,
-        verbose=args.verbose)
+        verbose=args.verbose-1)
 
     filename = args.mesh_filename.replace(".vtk", "-WithLocalBasis.vtk").replace(".vtu", "-WithLocalBasis.vtu")
 
     myvtk.writeUGrid(
         ugrid=ugrid_mesh,
         filename=filename,
-        verbose=args.verbose)
+        verbose=args.verbose-1)

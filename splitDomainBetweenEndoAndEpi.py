@@ -24,7 +24,7 @@ import vtkpython_cbl as cbl
 def splitDomainBetweenEndoAndEpi(
         pdata_domain,
         r=0.99,
-        verbose=0):
+        verbose=1):
 
     mypy.my_print(verbose, "*** splitDomainBetweenEndoAndEpi ***")
 
@@ -82,6 +82,8 @@ if (__name__ == "__main__"):
     parser.add_argument("--verbose", "-v" , type=int  , default=1   )
     args = parser.parse_args()
 
+    mypy.my_print(args.verbose, "*** splitDomainBetweenEndoAndEpi ***")
+
     if (args.endLV_filename is None):
         args.endLV_filename = args.domain_filename.replace("LV", "EndLV")
     if (args.epiLV_filename is None):
@@ -89,20 +91,20 @@ if (__name__ == "__main__"):
 
     pdata_domain = myvtk.readSTL(
         filename=args.domain_filename,
-        verbose=args.verbose)
+        verbose=args.verbose-1)
 
     (pdata_end,
      pdata_epi) = cbl.splitDomainBetweenEndoAndEpi(
          pdata_domain=pdata_domain,
          r=args.r,
-         verbose=args.verbose)
+         verbose=args.verbose-1)
 
     myvtk.writeSTL(
         pdata=pdata_end,
         filename=args.endLV_filename,
-        verbose=args.verbose)
+        verbose=args.verbose-1)
 
     myvtk.writeSTL(
         pdata=pdata_epi,
         filename=args.epiLV_filename,
-        verbose=args.verbose)
+        verbose=args.verbose-1)

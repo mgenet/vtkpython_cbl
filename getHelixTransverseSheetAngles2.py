@@ -29,7 +29,7 @@ def getHelixTransverseSheetAngles2(
         farray_eN,
         use_new_definition=False,
         ref_vectors_are_material_basis=False,
-        verbose=0):
+        verbose=1):
 
     mypy.my_print(verbose, "*** getHelixTransverseSheetAngles2 ***")
 
@@ -322,7 +322,7 @@ def addHelixTransverseSheetAngles2(
         type_of_support="cell",
         use_new_definition=False,
         ref_vectors_are_material_basis=False,
-        verbose=0):
+        verbose=1):
 
     mypy.my_print(verbose, "*** addHelixTransverseSheetAngles2 ***")
 

@@ -24,7 +24,7 @@ def getMeanStddevAngles(
         angles,
         angles_in_degrees=True,
         angles_in_pm_pi=True,
-        verbose=0):
+        verbose=1):
 
     mypy.my_print(verbose, "*** getMeanStddevAngles ***")
 
@@ -51,7 +51,7 @@ def getMeanStddevAngles(
 
 #def cleanAngles(
         #angles,
-        #verbose=0):
+        #verbose=1):
 
     #mypy.my_print(verbose, "*** cleanAngles ***")
 

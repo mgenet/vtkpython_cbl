@@ -23,7 +23,7 @@ def clipSurfacesForCutLVMesh(
         endo,
         epi,
         height,
-        verbose=0):
+        verbose=1):
 
     mypy.my_print(verbose, "*** clipSurfacesForCutLVMesh ***")
 

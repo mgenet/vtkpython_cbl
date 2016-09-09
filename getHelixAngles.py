@@ -25,7 +25,7 @@ def getHelixAngles(
         farray_eCC,
         farray_eLL,
         farray_eF,
-        verbose=0):
+        verbose=1):
 
     mypy.my_print(verbose, "*** getHelixAngles ***")
 
@@ -57,7 +57,7 @@ def getHelixAngles(
 def addHelixAngles(
         ugrid,
         type_of_support="cell",
-        verbose=0):
+        verbose=1):
 
     mypy.my_print(verbose, "*** addHelixAngles ***")
 

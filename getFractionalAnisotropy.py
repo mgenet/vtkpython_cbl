@@ -21,7 +21,7 @@ def getFractionalAnisotropy(
         farray_e1,
         farray_e2,
         farray_e3,
-        verbose=0):
+        verbose=1):
 
     mypy.my_print(verbose, "*** getFractionalAnisotropy ***")
 
@@ -53,7 +53,7 @@ def addFractionalAnisotropy(
         ugrid,
         field_name,
         type_of_support="cell",
-        verbose=0):
+        verbose=1):
 
     mypy.my_print(verbose, "*** addFractionalAnisotropy ***")
 

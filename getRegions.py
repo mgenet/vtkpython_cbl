@@ -24,7 +24,7 @@ def getRegionsForBiV(
         pdata_endLV,
         pdata_endRV,
         pdata_epi,
-        verbose=0):
+        verbose=1):
 
     mypy.my_print(verbose, "*** getRegionsForBiV ***")
 
@@ -100,7 +100,7 @@ def addRegionsToBiV(
         pdata_endLV,
         pdata_endRV,
         pdata_epi,
-        verbose=0):
+        verbose=1):
 
     mypy.my_print(verbose, "*** addRegionsToBiV ***")
 
