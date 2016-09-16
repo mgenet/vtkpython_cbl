@@ -28,24 +28,24 @@ def getABPointsFromBoundsAndCenter(
     mypy.my_print(verbose, "*** getABPointsFromBoundsAndCenter ***")
 
     C = numpy.array(mesh.GetCenter())
-    #print "C ="+str(C)
+    #mypy.my_print(verbose-1, "C = "+str(C))
 
     bounds = mesh.GetBounds()
     diag = numpy.array([bounds[1]-bounds[0], bounds[3]-bounds[2], bounds[5]-bounds[4]])
     AB = numpy.array(AB)
     AB = abs(numpy.dot(diag, AB)) * AB
-    #print "bounds ="+str(bounds)
-    #print "diag ="+str(diag)
-    #print "AB ="+str(AB)
+    #mypy.my_print(verbose-1, "bounds = "+str(bounds))
+    #mypy.my_print(verbose-1, "diag = "+str(diag))
+    #mypy.my_print(verbose-1, "AB = "+str(AB))
 
     point_A = C - AB/2
     point_B = C + AB/2
-    #print "point_A ="+str(point_A)
-    #print "point_B ="+str(point_B)
+    #mypy.my_print(verbose-1, "point_A = "+str(point_A))
+    #mypy.my_print(verbose-1, "point_B = "+str(point_B))
 
     points_AB = vtk.vtkPoints()
     points_AB.InsertNextPoint(point_A)
     points_AB.InsertNextPoint(point_B)
-    #print points_AB
+    #mypy.my_print(verbose-1, "points_AB = "+str(points_AB))
 
     return points_AB

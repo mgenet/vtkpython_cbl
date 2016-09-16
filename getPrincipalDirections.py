@@ -38,7 +38,7 @@ def getPrincipalDirections(
     elif (field_storage == "Fmat"):
         assert (field.GetNumberOfComponents() == 9), "Wrong numpber of components ("+str(field.GetNumberOfComponents())+"). Aborting."
     else:
-        assert (0), "Wrong storage (field_storage="+str(field_storage)+"). Aborting."
+        assert (0), "Wrong storage (field_storage= "+str(field_storage)+"). Aborting."
 
     n_tuples = field.GetNumberOfTuples()
 
@@ -71,18 +71,18 @@ def getPrincipalDirections(
             mypy.fvec9_to_mat33(vec, mat)
 
         if (numpy.linalg.norm(mat) > 1e-6):
-            #mypy.my_print(verbose-1, "k_tuple ="+str(k_tuple))
+            #mypy.my_print(verbose-1, "k_tuple = "+str(k_tuple))
 
             vals, vecs = numpy.linalg.eig(mat)
-            #mypy.my_print(verbose-1, "vals ="+str(vals))
-            #mypy.my_print(verbose-1, "vecs ="+str(vecs))
-            #mypy.my_print(verbose-1, "det ="+str(numpy.linalg.det(vecs)))
+            #mypy.my_print(verbose-1, "vals = "+str(vals))
+            #mypy.my_print(verbose-1, "vecs = "+str(vecs))
+            #mypy.my_print(verbose-1, "det = "+str(numpy.linalg.det(vecs)))
             idx = vals.argsort()
             vals = vals[idx]
             vecs = vecs[:,idx]
-            #mypy.my_print(verbose-1, "vals ="+str(vals))
-            #mypy.my_print(verbose-1, "vecs ="+str(vecs))
-            #mypy.my_print(verbose-1, "det ="+str(numpy.linalg.det(vecs)))
+            #mypy.my_print(verbose-1, "vals = "+str(vals))
+            #mypy.my_print(verbose-1, "vecs = "+str(vecs))
+            #mypy.my_print(verbose-1, "det = "+str(numpy.linalg.det(vecs)))
 
             mat_Lmin = vals[0]
             mat_Lmid = vals[1]

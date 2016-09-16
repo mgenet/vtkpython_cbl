@@ -34,14 +34,15 @@ def getPseudoProlateSpheroidalCoordinatesAndBasisForLV(
 
     mypy.my_print(verbose-1, "Computing surface cell normals...")
 
-    pdata_end = myvtk.addPDataNormals(
+    myvtk.addPDataNormals(
         pdata=pdata_end,
         verbose=verbose-1)
-    pdata_epi = myvtk.addPDataNormals(
+    myvtk.addPDataNormals(
         pdata=pdata_epi,
         verbose=verbose-1)
 
     mypy.my_print(verbose-1, "Initializing surface cell locators...")
+
 
     (cell_locator_end,
      closest_point_end,
@@ -228,13 +229,13 @@ def getPseudoProlateSpheroidalCoordinatesAndBasisForBiV(
 
     mypy.my_print(verbose-1, "Computing surface cell normals...")
 
-    pdata_endLV = myvtk.addPDataNormals(
+    myvtk.addPDataNormals(
         pdata=pdata_endLV,
         verbose=verbose-1)
-    pdata_endRV = myvtk.addPDataNormals(
+    myvtk.addPDataNormals(
         pdata=pdata_endRV,
         verbose=verbose-1)
-    pdata_epi = myvtk.addPDataNormals(
+    myvtk.addPDataNormals(
         pdata=pdata_epi,
         verbose=verbose-1)
 

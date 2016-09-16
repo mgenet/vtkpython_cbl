@@ -39,19 +39,19 @@ if (__name__ == "__main__"):
         filename=args.mesh_filename,
         verbose=args.verbose-1)
 
-    #cbl.addCartesianCoordinates(
-        #ugrid=ugrid_mesh,
-        #verbose=args.verbose-1)
+    cbl.addCartesianCoordinates(
+        ugrid=ugrid_mesh,
+        verbose=args.verbose-1)
 
     if (args.end_filename == None):
         args.end_filename = args.mesh_filename.replace("LV", "EndLV").replace(".vtk", ".stl").replace(".vtu", ".stl")
     if (args.epi_filename == None):
         args.epi_filename = args.mesh_filename.replace("LV", "EpiLV").replace(".vtk", ".stl").replace(".vtu", ".stl")
 
-    pdata_end = myvtk.readSTL(
+    pdata_end = myvtk.readPData(
         filename=args.end_filename,
         verbose=args.verbose-1)
-    pdata_epi = myvtk.readSTL(
+    pdata_epi = myvtk.readPData(
         filename=args.epi_filename,
         verbose=args.verbose-1)
 
@@ -63,10 +63,10 @@ if (__name__ == "__main__"):
     else:
         assert (0)
 
-    #cbl.addCylindricalCoordinatesAndBasis(
-        #ugrid=ugrid_mesh,
-        #points_AB=points_AB,
-        #verbose=args.verbose-1)
+    cbl.addCylindricalCoordinatesAndBasis(
+        ugrid=ugrid_mesh,
+        points_AB=points_AB,
+        verbose=args.verbose-1)
 
     cbl.addPseudoProlateSpheroidalCoordinatesAndBasisToLV(
         ugrid=ugrid_mesh,
