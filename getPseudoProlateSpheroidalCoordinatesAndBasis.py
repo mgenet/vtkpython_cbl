@@ -2,7 +2,7 @@
 
 ########################################################################
 ###                                                                  ###
-### Created by Martin Genet, 2012-2016                               ###
+### Created by Martin Genet, 2012-2017                               ###
 ###                                                                  ###
 ### University of California at San Francisco (UCSF), USA            ###
 ### Swiss Federal Institute of Technology (ETH), Zurich, Switzerland ###
@@ -279,7 +279,7 @@ def getPseudoProlateSpheroidalCoordinatesAndBasisForBiV(
     farray_eLL = myvtk.createFloatArray("eLL", 3, n_points)
 
     c_lst_FWLV = numpy.array([farray_c.GetTuple1(k_point) for k_point in xrange(n_points) if (iarray_regions.GetTuple1(k_point) == 0)])
-    (c_avg_FWLV, c_std_FWLV) = myvtk.getMeanStddevAngles(
+    (c_avg_FWLV, c_std_FWLV) = cbl.getMeanStddevAngles(
         angles=c_lst_FWLV,
         angles_in_degrees=False,
         angles_in_pm_pi=False)
@@ -291,7 +291,7 @@ def getPseudoProlateSpheroidalCoordinatesAndBasisForBiV(
     mypy.my_print(verbose-1, "c_max_FWLV = "+str(c_max_FWLV))
 
     c_lst_S = numpy.array([farray_c.GetTuple1(k_point) for k_point in xrange(n_points) if (iarray_regions.GetTuple1(k_point) == 1)])
-    (c_avg_S, c_std_S) = myvtk.getMeanStddevAngles(
+    (c_avg_S, c_std_S) = cbl.getMeanStddevAngles(
         angles=c_lst_S,
         angles_in_degrees=False,
         angles_in_pm_pi=False)
@@ -303,7 +303,7 @@ def getPseudoProlateSpheroidalCoordinatesAndBasisForBiV(
     mypy.my_print(verbose-1, "c_max_S = "+str(c_max_S))
 
     c_lst_FWRV = numpy.array([farray_c.GetTuple1(k_point) for k_point in xrange(n_points) if (iarray_regions.GetTuple1(k_point) == 2)])
-    (c_avg_FWRV, c_std_FWRV) = myvtk.getMeanStddevAngles(
+    (c_avg_FWRV, c_std_FWRV) = cbl.getMeanStddevAngles(
         angles=c_lst_FWRV,
         angles_in_degrees=False,
         angles_in_pm_pi=False)

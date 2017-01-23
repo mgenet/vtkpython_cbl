@@ -3,7 +3,7 @@
 
 ########################################################################
 ###                                                                  ###
-### Created by Martin Genet, 2012-2016                               ###
+### Created by Martin Genet, 2012-2017                               ###
 ###                                                                  ###
 ### University of California at San Francisco (UCSF), USA            ###
 ### Swiss Federal Institute of Technology (ETH), Zurich, Switzerland ###
@@ -51,13 +51,13 @@ if (__name__ == "__main__"):
     if (args.epi_filename == None):
         args.epi_filename = args.mesh_filename.replace("BiV", "Epi").replace(".vtk", ".stl").replace(".vtu", ".stl")
 
-    pdata_endLV = myvtk.readSTL(
+    pdata_endLV = myvtk.readPData(
         filename=args.endLV_filename,
         verbose=args.verbose-1)
-    pdata_endRV = myvtk.readSTL(
+    pdata_endRV = myvtk.readPData(
         filename=args.endRV_filename,
         verbose=args.verbose-1)
-    pdata_epi = myvtk.readSTL(
+    pdata_epi = myvtk.readPData(
         filename=args.epi_filename,
         verbose=args.verbose-1)
 

@@ -3,7 +3,7 @@
 
 ########################################################################
 ###                                                                  ###
-### Created by Martin Genet, 2012-2016                               ###
+### Created by Martin Genet, 2012-2017                               ###
 ###                                                                  ###
 ### University of California at San Francisco (UCSF), USA            ###
 ### Swiss Federal Institute of Technology (ETH), Zurich, Switzerland ###
@@ -99,13 +99,13 @@ if (__name__ == "__main__"):
 
     mypy.my_print(args.verbose, "*** clipSurfacesForFullBiVMesh ***")
 
-    pdata_endLV = myvtk.readSTL(
+    pdata_endLV = myvtk.readPData(
         filename=args.endLV_filename,
         verbose=args.verbose-1)
-    pdata_endRV = myvtk.readSTL(
+    pdata_endRV = myvtk.readPData(
         filename=endRV_filename,
         verbose=args.verbose-1)
-    pdata_epi = myvtk.readSTL(
+    pdata_epi = myvtk.readPData(
         filename=args.epi_filename,
         verbose=args.verbose-1)
 

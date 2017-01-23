@@ -3,7 +3,7 @@
 
 ########################################################################
 ###                                                                  ###
-### Created by Martin Genet, 2012-2016                               ###
+### Created by Martin Genet, 2012-2017                               ###
 ###                                                                  ###
 ### University of California at San Francisco (UCSF), USA            ###
 ### Swiss Federal Institute of Technology (ETH), Zurich, Switzerland ###
@@ -89,7 +89,7 @@ if (__name__ == "__main__"):
     if (args.epiLV_filename is None):
         args.epiLV_filename = args.domain_filename.replace("LV", "EpiLV")
 
-    pdata_domain = myvtk.readSTL(
+    pdata_domain = myvtk.readPData(
         filename=args.domain_filename,
         verbose=args.verbose-1)
 

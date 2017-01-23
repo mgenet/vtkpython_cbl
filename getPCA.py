@@ -2,7 +2,7 @@
 
 ########################################################################
 ###                                                                  ###
-### Created by Martin Genet, 2012-2016                               ###
+### Created by Martin Genet, 2012-2017                               ###
 ###                                                                  ###
 ### University of California at San Francisco (UCSF), USA            ###
 ### Swiss Federal Institute of Technology (ETH), Zurich, Switzerland ###
@@ -53,7 +53,7 @@ def discretizeData(
                 sel_r = [k_tuple for k_tuple in sel_c if (math.floor(n_r*farray_rr.GetTuple1(k_tuple)) == k_r)]
                 #print len(sel_r)
 
-                (m, s) = getMeanStddevAngles([farray_h.GetTuple1(k_tuple) for k_tuple in sel_r], verbose=0)
+                (m, s) = cbl.getMeanStddevAngles([farray_h.GetTuple1(k_tuple) for k_tuple in sel_r], verbose=0)
                 h[k_r, k_c, k_l] = m
 
     mypy.my_print(verbose-1, "h = "+str(h))
