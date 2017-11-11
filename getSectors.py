@@ -30,8 +30,13 @@ def getSectorsForLV(
     mypy.my_print(verbose, "*** getSectorsForLV ***")
 
     n_cells = farray_rr.GetNumberOfTuples()
+    assert (farray_cc.GetNumberOfTuples() == n_cells)
+    assert (farray_ll.GetNumberOfTuples() == n_cells)
 
     iarray_sector = myvtk.createIntArray("sector_id", 1, n_cells)
+
+    n_sectors = n_l*n_c*n_r
+    counters = [0]*n_sectors
 
     for k_cell in range(n_cells):
         if (iarray_part_id is not None) and (int(iarray_part_id.GetTuple1(k_cell)) > 0):
@@ -47,8 +52,13 @@ def getSectorsForLV(
             k_l = int((1.-ll)*n_l/1.000001)
 
             sector_id = k_l * n_c * n_r + k_c * n_r + k_r
+            counters[sector_id] += 1
 
         iarray_sector.SetTuple1(k_cell, sector_id)
+
+    for k_sector in xrange(n_sectors):
+        if (counters[k_sector] == 0):
+            print "Warning. Sector "+str(k_sector)+" is empty."
 
     return iarray_sector
 
@@ -97,6 +107,9 @@ def getSectorsForBiV(
 
     iarray_sector = myvtk.createIntArray("sector_id", 1, n_cells)
 
+    n_sectors = n_l[0]*n_c[0]*n_r[0] + n_l[1]*n_c[1]*n_r[1] + n_l[2]*n_c[2]*n_r[2]
+    counters = [0]*n_sectors
+
     for k_cell in range(n_cells):
         if (iarray_part_id is not None) and (int(iarray_part_id.GetTuple1(k_cell)) > 0):
             sector_id = -1
@@ -120,8 +133,13 @@ def getSectorsForBiV(
                 sector_id += n_r[0] * n_c[0] * n_l[0]
             if (region_id >= 2):
                 sector_id += n_r[1] * n_c[1] * n_l[1]
+            counters[sector_id] += 1
 
         iarray_sector.SetTuple1(k_cell, sector_id)
+
+    for k_sector in xrange(n_sectors):
+        if (counters[k_sector] == 0):
+            print "Warning. Sector "+str(k_sector)+" is empty."
 
     return iarray_sector
 
