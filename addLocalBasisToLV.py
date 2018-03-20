@@ -3,7 +3,7 @@
 
 ########################################################################
 ###                                                                  ###
-### Created by Martin Genet, 2012-2017                               ###
+### Created by Martin Genet, 2012-2018                               ###
 ###                                                                  ###
 ### University of California at San Francisco (UCSF), USA            ###
 ### Swiss Federal Institute of Technology (ETH), Zurich, Switzerland ###
@@ -75,7 +75,7 @@ if (__name__ == "__main__"):
         verbose=args.verbose-1)
 
     cbl.addSectorsToLV(
-        ugrid_mesh=ugrid_mesh,
+        ugrid=ugrid_mesh,
         n_r=args.n_sectors_r,
         n_c=args.n_sectors_c,
         n_l=args.n_sectors_l,

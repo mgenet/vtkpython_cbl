@@ -2,7 +2,7 @@
 
 ########################################################################
 ###                                                                  ###
-### Created by Martin Genet, 2012-2017                               ###
+### Created by Martin Genet, 2012-2018                               ###
 ###                                                                  ###
 ### University of California at San Francisco (UCSF), USA            ###
 ### Swiss Federal Institute of Technology (ETH), Zurich, Switzerland ###
@@ -65,7 +65,7 @@ def getSectorsForLV(
 ########################################################################
 
 def addSectorsToLV(
-        ugrid_mesh,
+        ugrid,
         n_r=1,
         n_c=1,
         n_l=1,
@@ -74,16 +74,16 @@ def addSectorsToLV(
     mypy.my_print(verbose, "*** addSectorsToLV ***")
 
     iarray_sector = getSectorsForLV(
-        farray_rr=ugrid_mesh.GetCellData().GetArray("rr"),
-        farray_cc=ugrid_mesh.GetCellData().GetArray("cc"),
-        farray_ll=ugrid_mesh.GetCellData().GetArray("ll"),
+        farray_rr=ugrid.GetCellData().GetArray("rr"),
+        farray_cc=ugrid.GetCellData().GetArray("cc"),
+        farray_ll=ugrid.GetCellData().GetArray("ll"),
         n_r=n_r,
         n_c=n_c,
         n_l=n_l,
-        iarray_part_id=ugrid_mesh.GetCellData().GetArray("part_id"),
+        iarray_part_id=ugrid.GetCellData().GetArray("part_id"),
         verbose=verbose-1)
 
-    ugrid_mesh.GetCellData().AddArray(iarray_sector)
+    ugrid.GetCellData().AddArray(iarray_sector)
 
 ########################################################################
 
@@ -146,7 +146,7 @@ def getSectorsForBiV(
 ########################################################################
 
 def addSectorsToBiV(
-        ugrid_mesh,
+        ugrid,
         n_r=[1]*3,
         n_c=[1]*3,
         n_l=[1]*3,
@@ -155,16 +155,16 @@ def addSectorsToBiV(
     mypy.my_print(verbose, "*** addSectorsToBiV ***")
 
     iarray_sector = getSectorsForBiV(
-        iarray_regions=ugrid_mesh.GetCellData().GetArray("region_id"),
-        farray_rr=ugrid_mesh.GetCellData().GetArray("rr"),
-        farray_cc=ugrid_mesh.GetCellData().GetArray("cc"),
-        farray_ll=ugrid_mesh.GetCellData().GetArray("ll"),
+        iarray_regions=ugrid.GetCellData().GetArray("region_id"),
+        farray_rr=ugrid.GetCellData().GetArray("rr"),
+        farray_cc=ugrid.GetCellData().GetArray("cc"),
+        farray_ll=ugrid.GetCellData().GetArray("ll"),
         n_r=n_r,
         n_c=n_c,
         n_l=n_l,
-        iarray_part_id=ugrid_mesh.GetCellData().GetArray("part_id"),
+        iarray_part_id=ugrid.GetCellData().GetArray("part_id"),
         verbose=verbose-1)
 
-    ugrid_mesh.GetCellData().AddArray(iarray_sector)
+    ugrid.GetCellData().AddArray(iarray_sector)
 
 ########################################################################
