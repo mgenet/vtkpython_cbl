@@ -1,11 +1,11 @@
 # vtkpython_cbl
 A library of vtkpython tools for cardiac biomechanics.
 ### Requirements
-First you need to install [myPythonLibrary](https://github.com/mgenet/myPythonLibrary) as well as [myVTKPythonLibrary](https://github.com/mgenet/myVTKPythonLibrary)
+First you need to install [myPythonLibrary](https://gitlab.inria.fr/mgenet/myPythonLibrary) as well as [myVTKPythonLibrary](https://gitlab.inria.fr/mgenet/myVTKPythonLibrary)
 ### Installation
 Get the code:
 ```
-git clone https://github.com/mgenet/vtkpython_cbl
+git clone https://gitlab.inria.fr/mgenet/vtkpython_cbl
 ```
 To load the library within python, the simplest is to add the folder containing vtkpython_cbl to `PYTHONPATH`:
 ```
