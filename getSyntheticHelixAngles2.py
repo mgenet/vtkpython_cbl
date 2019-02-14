@@ -65,7 +65,7 @@ def getSyntheticHelixAngles2(
         i_c = int(cc/d_c/1.000001)
         #print "i_c = "+str(i_c)
 
-        zeta = (t - i_c*d_c) / d_c
+        zeta = (cc - i_c*d_c) / d_c
         #print "zeta = "+str(zeta)
 
         ll = farray_ll.GetTuple1(k_tuple)
