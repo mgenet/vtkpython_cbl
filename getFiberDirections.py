@@ -92,6 +92,7 @@ def getFiberDirections(
 def addFiberDirections(
         ugrid,
         type_of_support="cell",
+        ref_basis="PPS",
         angles_in_degrees=True,
         use_new_definition=False,
         shuffle_vectors=False,
@@ -104,9 +105,14 @@ def addFiberDirections(
     elif (type_of_support == "point"):
         ugrid_data = ugrid.GetPointData()
 
-    farray_eRR = ugrid_data.GetArray("eRR")
-    farray_eCC = ugrid_data.GetArray("eCC")
-    farray_eLL = ugrid_data.GetArray("eLL")
+    if (ref_basis == "PPS"):
+        farray_eRR = ugrid_data.GetArray("eRR")
+        farray_eCC = ugrid_data.GetArray("eCC")
+        farray_eLL = ugrid_data.GetArray("eLL")
+    elif (ref_basis == "CYL"):
+        farray_eRR = ugrid_data.GetArray("eR")
+        farray_eCC = ugrid_data.GetArray("eC")
+        farray_eLL = ugrid_data.GetArray("eL")
 
     farray_angle_helix = ugrid_data.GetArray("angle_helix")
 
