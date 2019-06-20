@@ -10,6 +10,8 @@
 ###                                                                  ###
 ########################################################################
 
+from builtins import *
+
 import numpy
 
 import myPythonLibrary as mypy
@@ -39,13 +41,13 @@ def writeFiberOrientationFileForAbaqus(
     eF = numpy.empty(3)
     eS = numpy.empty(3)
 
-    for k_cell in xrange(n_cells):
+    for k_cell in range(n_cells):
         eF_array.GetTuple(k_cell, eF)
         eS_array.GetTuple(k_cell, eS)
 
         line = str(k_cell+1)
-        for k in xrange(3): line += sep + str(eF[k])
-        for k in xrange(3): line += sep + str(eS[k])
+        for k in range(3): line += sep + str(eF[k])
+        for k in range(3): line += sep + str(eS[k])
         line += "\n"
         orientation_file.write(line)
 

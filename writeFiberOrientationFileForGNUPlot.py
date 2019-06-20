@@ -10,6 +10,8 @@
 ###                                                                  ###
 ########################################################################
 
+from builtins import *
+
 import myPythonLibrary as mypy
 import myVTKPythonLibrary as myvtk
 
@@ -37,13 +39,13 @@ def writeFiberOrientationFileForGNUPlot(
     fiber_orientation_file.write('# c ang_end ang_epi z\n')
 
     n_c = 12
-    for k_c in xrange(n_c+1):
+    for k_c in range(n_c+1):
         c    = float(k_c) / n_c
         i_c  = int(c/d_c/1.000001)
         zeta = (c - i_c*d_c) / d_c
 
         n_l = 10
-        for k_l in xrange(n_l+1):
+        for k_l in range(n_l+1):
             l   = float(k_l) / n_l
             i_l = int(l/d_l/1.000001)
             eta = (l - i_l*d_l) / d_l

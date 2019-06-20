@@ -11,6 +11,8 @@
 ###                                                                  ###
 ########################################################################
 
+from builtins import *
+
 import argparse
 import vtk
 
@@ -139,4 +141,3 @@ if (__name__ == "__main__"):
         pdata=clipped_pdata_valP,
         filename="valP.stl",
         verbose=args.verbose-1)
-

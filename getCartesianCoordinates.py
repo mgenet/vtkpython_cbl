@@ -10,6 +10,8 @@
 ###                                                                  ###
 ########################################################################
 
+from builtins import *
+
 import numpy
 
 import myPythonLibrary as mypy
@@ -46,7 +48,7 @@ def getCartesianCoordinates(
     farray_zz = myvtk.createFloatArray("zz", 1, n_points)
 
     point = numpy.empty(3)
-    for k_point in xrange(n_points):
+    for k_point in range(n_points):
         mypy.my_print(verbose-2, "k_point = "+str(k_point))
 
         points.GetPoint(k_point, point)

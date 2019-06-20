@@ -10,6 +10,8 @@
 ###                                                                  ###
 ########################################################################
 
+from builtins import *
+
 import myPythonLibrary as mypy
 import myVTKPythonLibrary as myvtk
 
@@ -56,9 +58,9 @@ def getSectorsForLV(
 
         iarray_sector.SetTuple1(k_cell, sector_id)
 
-    for k_sector in xrange(n_sectors):
+    for k_sector in range(n_sectors):
         if (counters[k_sector] == 0):
-            print "Warning. Sector "+str(k_sector)+" is empty."
+            mypy.my_print(verbose, "Warning. Sector "+str(k_sector)+" is empty.")
 
     return iarray_sector
 
@@ -137,9 +139,9 @@ def getSectorsForBiV(
 
         iarray_sector.SetTuple1(k_cell, sector_id)
 
-    for k_sector in xrange(n_sectors):
+    for k_sector in range(n_sectors):
         if (counters[k_sector] == 0):
-            print "Warning. Sector "+str(k_sector)+" is empty."
+            mypy.my_print(verbose, "Warning. Sector "+str(k_sector)+" is empty.")
 
     return iarray_sector
 

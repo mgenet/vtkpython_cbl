@@ -10,6 +10,8 @@
 ###                                                                  ###
 ########################################################################
 
+from builtins import *
+
 import numpy
 
 import myPythonLibrary as mypy
@@ -36,11 +38,11 @@ def getSystolicStrainsFromEndDiastolicAndEndSystolicDeformationGradients(
 
     I = numpy.eye(3)
     E_vec = numpy.empty(6)
-    for k_tuple in xrange(n_tuples):
+    for k_tuple in range(n_tuples):
         F_dia = numpy.reshape(farray_F_dia.GetTuple(k_tuple), (3,3), order='C')
         F_sys = numpy.reshape(farray_F_sys.GetTuple(k_tuple), (3,3), order='C')
-        #print 'F_dia =', F_dia
-        #print 'F_sys =', F_sys
+        #print('F_dia =', F_dia)
+        #print('F_sys =', F_sys)
 
         C = numpy.dot(numpy.transpose(F_dia), F_dia)
         E = (C - I)/2
@@ -54,7 +56,7 @@ def getSystolicStrainsFromEndDiastolicAndEndSystolicDeformationGradients(
 
         F = numpy.dot(F_sys, numpy.linalg.inv(F_dia))
         farray_F_num.SetTuple(k_tuple, numpy.reshape(F, 9, order='C'))
-        #print 'F =', F
+        #print('F =', F)
 
         C = numpy.dot(numpy.transpose(F), F)
         E = (C - I)/2

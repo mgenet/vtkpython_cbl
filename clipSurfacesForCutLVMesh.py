@@ -10,6 +10,8 @@
 ###                                                                  ###
 ########################################################################
 
+from builtins import *
+
 import vtk
 
 import myPythonLibrary as mypy
@@ -51,4 +53,3 @@ def clipSurfacesForCutLVMesh(
 
     return (clipped_endo,
             clipped_epi)
-

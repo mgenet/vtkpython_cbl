@@ -10,6 +10,8 @@
 ###                                                                  ###
 ########################################################################
 
+from builtins import *
+
 import vtk
 
 import myPythonLibrary as mypy
@@ -56,13 +58,3 @@ def clipSurfacesForFullLVMesh(
     return (clipped_endo,
             clipped_epi,
             clipped_valve)
-
-
-
-
-
-
-
-
-
-

@@ -10,6 +10,8 @@
 ###                                                                  ###
 ########################################################################
 
+from builtins import *
+
 import math
 import random
 import numpy
@@ -44,7 +46,7 @@ def getFiberSheetNormalDirections(
     eRR = numpy.empty(3)
     eCC = numpy.empty(3)
     eLL = numpy.empty(3)
-    for k_tuple in xrange(n_tuples):
+    for k_tuple in range(n_tuples):
         farray_eRR.GetTuple(k_tuple, eRR)
         farray_eCC.GetTuple(k_tuple, eCC)
         farray_eLL.GetTuple(k_tuple, eLL)

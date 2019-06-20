@@ -10,6 +10,8 @@
 ###                                                                  ###
 ########################################################################
 
+from builtins import *
+
 import numpy
 import vtk
 
@@ -29,10 +31,10 @@ def getABPointsFromOrientedBoundingBox(
     center = numpy.array(mesh.GetCenter())
 
     res_corner = numpy.empty(3)
-    res_max = numpy.empty(3)
-    res_mid = numpy.empty(3)
-    res_min = numpy.empty(3)
-    res_size = numpy.empty(3)
+    res_max    = numpy.empty(3)
+    res_mid    = numpy.empty(3)
+    res_min    = numpy.empty(3)
+    res_size   = numpy.empty(3)
     obb_tree = vtk.vtkOBBTree()
     obb_tree.ComputeOBB(
         mesh,

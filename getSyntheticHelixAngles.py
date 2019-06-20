@@ -10,6 +10,8 @@
 ###                                                                  ###
 ########################################################################
 
+from builtins import *
+
 import myPythonLibrary as mypy
 import myVTKPythonLibrary as myvtk
 
@@ -34,7 +36,7 @@ def getSyntheticHelixAngles(
             n_components=1,
             n_tuples=n_cells)
 
-    for k_cell in xrange(n_cells):
+    for k_cell in range(n_cells):
         rr = farray_rr.GetTuple1(k_cell)
 
         helix_angle_in_degrees = (1.-rr) * helix_angle_end \

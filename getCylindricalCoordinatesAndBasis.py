@@ -10,6 +10,8 @@
 ###                                                                  ###
 ########################################################################
 
+from builtins import *
+
 import math
 import numpy
 
@@ -56,7 +58,7 @@ def getCylindricalCoordinatesAndBasis(
     farray_eL = myvtk.createFloatArray("eL", 3, n_points)
 
     point = numpy.empty(3)
-    for k_point in xrange(n_points):
+    for k_point in range(n_points):
         mypy.my_print(verbose-2, "k_point = "+str(k_point))
 
         points.GetPoint(k_point, point)

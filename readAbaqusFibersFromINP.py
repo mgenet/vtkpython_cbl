@@ -10,6 +10,8 @@
 ###                                                                  ###
 ########################################################################
 
+from builtins import *
+
 import numpy
 
 import myPythonLibrary as mypy
@@ -34,14 +36,14 @@ def readAbaqusFibersFromINP(
 
     for line in file:
         line = line.split(', ')
-        #print line
+        #print(line)
 
         eF = [float(item) for item in line[1:4]]
         eS = [float(item) for item in line[4:7]]
         eN = numpy.cross(eF,eS)
-        #print "eF =", eF
-        #print "eS =", eS
-        #print "eN =", eN
+        #print("eF =", eF)
+        #print("eS =", eS)
+        #print("eN =", eN)
 
         eF_array.InsertNextTuple(eF)
         eS_array.InsertNextTuple(eS)

@@ -10,6 +10,8 @@
 ###                                                                  ###
 ########################################################################
 
+from builtins import *
+
 import math
 import numpy
 
@@ -60,8 +62,8 @@ def getPrincipalDirections(
     if (orient):
         eCC = numpy.empty(3)
         eLL = numpy.empty(3)
-    for k_tuple in xrange(n_tuples):
-        #print "k_tuple: "+str(k_tuple)
+    for k_tuple in range(n_tuples):
+        #print("k_tuple: "+str(k_tuple))
         field.GetTuple(k_tuple, vec)
         if (field_storage == "vec"):
             mypy.vec_col6_to_mat_sym33(vec, mat)

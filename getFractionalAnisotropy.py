@@ -10,6 +10,8 @@
 ###                                                                  ###
 ########################################################################
 
+from builtins import *
+
 import myPythonLibrary as mypy
 import myVTKPythonLibrary as myvtk
 
@@ -31,7 +33,7 @@ def getFractionalAnisotropy(
     farray_FA12 = myvtk.createFloatArray("FA_12", 1, n_tuples)
     farray_FA23 = myvtk.createFloatArray("FA_23", 1, n_tuples)
 
-    for k_tuple in xrange(n_tuples):
+    for k_tuple in range(n_tuples):
         e1 = farray_e1.GetTuple1(k_tuple)
         e2 = farray_e2.GetTuple1(k_tuple)
         e3 = farray_e3.GetTuple1(k_tuple)

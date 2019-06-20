@@ -11,6 +11,8 @@
 ###                                                                  ###
 ########################################################################
 
+from builtins import *
+
 import argparse
 import numpy
 import vtk
@@ -34,7 +36,7 @@ def extendEpicardialSurface(
 
     n_points = pdata_epi.GetNumberOfPoints()
     X = numpy.empty(3)
-    for k_point in xrange(n_points):
+    for k_point in range(n_points):
         pdata_epi.GetPoint(k_point, X)
         if (abs(X[2] - Zmin) < 1e-1):
             X[2] -= dZ

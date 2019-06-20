@@ -10,6 +10,8 @@
 ###                                                                  ###
 ########################################################################
 
+from builtins import *
+
 import math
 import numpy
 
@@ -81,11 +83,11 @@ def getPseudoProlateSpheroidalCoordinatesAndBasisForLV(
                 farray_eCC,
                 farray_eLL)
 
-    c_lst = [farray_c.GetTuple1(k_point) for k_point in xrange(n_points)]
+    c_lst = [farray_c.GetTuple1(k_point) for k_point in range(n_points)]
     c_min = min(c_lst)
     c_max = max(c_lst)
 
-    l_lst = [farray_l.GetTuple1(k_point) for k_point in xrange(n_points)]
+    l_lst = [farray_l.GetTuple1(k_point) for k_point in range(n_points)]
     l_min = min(l_lst)
     l_max = max(l_lst)
 
@@ -97,7 +99,7 @@ def getPseudoProlateSpheroidalCoordinatesAndBasisForLV(
     eL = numpy.empty(3)
 
     point = numpy.empty(3)
-    for k_point in xrange(n_points):
+    for k_point in range(n_points):
         if (iarray_part_id is not None) and (int(iarray_part_id.GetTuple1(k_point)) > 0):
             rr = 0.
             cc = 0.
@@ -278,7 +280,7 @@ def getPseudoProlateSpheroidalCoordinatesAndBasisForBiV(
     farray_eCC = myvtk.createFloatArray("eCC", 3, n_points)
     farray_eLL = myvtk.createFloatArray("eLL", 3, n_points)
 
-    c_lst_FWLV = numpy.array([farray_c.GetTuple1(k_point) for k_point in xrange(n_points) if (iarray_regions.GetTuple1(k_point) == 0)])
+    c_lst_FWLV = numpy.array([farray_c.GetTuple1(k_point) for k_point in range(n_points) if (iarray_regions.GetTuple1(k_point) == 0)])
     (c_avg_FWLV, c_std_FWLV) = cbl.getMeanStddevAngles(
         angles=c_lst_FWLV,
         angles_in_degrees=False,
@@ -290,7 +292,7 @@ def getPseudoProlateSpheroidalCoordinatesAndBasisForBiV(
     mypy.my_print(verbose-1, "c_min_FWLV = "+str(c_min_FWLV))
     mypy.my_print(verbose-1, "c_max_FWLV = "+str(c_max_FWLV))
 
-    c_lst_S = numpy.array([farray_c.GetTuple1(k_point) for k_point in xrange(n_points) if (iarray_regions.GetTuple1(k_point) == 1)])
+    c_lst_S = numpy.array([farray_c.GetTuple1(k_point) for k_point in range(n_points) if (iarray_regions.GetTuple1(k_point) == 1)])
     (c_avg_S, c_std_S) = cbl.getMeanStddevAngles(
         angles=c_lst_S,
         angles_in_degrees=False,
@@ -302,7 +304,7 @@ def getPseudoProlateSpheroidalCoordinatesAndBasisForBiV(
     mypy.my_print(verbose-1, "c_min_S = "+str(c_min_S))
     mypy.my_print(verbose-1, "c_max_S = "+str(c_max_S))
 
-    c_lst_FWRV = numpy.array([farray_c.GetTuple1(k_point) for k_point in xrange(n_points) if (iarray_regions.GetTuple1(k_point) == 2)])
+    c_lst_FWRV = numpy.array([farray_c.GetTuple1(k_point) for k_point in range(n_points) if (iarray_regions.GetTuple1(k_point) == 2)])
     (c_avg_FWRV, c_std_FWRV) = cbl.getMeanStddevAngles(
         angles=c_lst_FWRV,
         angles_in_degrees=False,
@@ -314,12 +316,12 @@ def getPseudoProlateSpheroidalCoordinatesAndBasisForBiV(
     mypy.my_print(verbose-1, "c_min_FWRV = "+str(c_min_FWRV))
     mypy.my_print(verbose-1, "c_max_FWRV = "+str(c_max_FWRV))
 
-    l_lst = [farray_l.GetTuple1(k_point) for k_point in xrange(n_points)]
+    l_lst = [farray_l.GetTuple1(k_point) for k_point in range(n_points)]
     l_min = min(l_lst)
     l_max = max(l_lst)
 
     point = numpy.empty(3)
-    for k_point in xrange(n_points):
+    for k_point in range(n_points):
         if (iarray_part_id is not None) and (int(iarray_part_id.GetTuple1(k_point)) > 0):
             rr = 0.
             cc = 0.

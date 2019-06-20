@@ -11,6 +11,8 @@
 ###                                                                  ###
 ########################################################################
 
+from builtins import *
+
 import argparse
 import numpy
 import vtk
@@ -39,7 +41,7 @@ def splitDomainBetweenEndoAndEpi(
 
     bounds = pdata_domain.GetBounds()
     for r in r_list:
-        print "r = "+str(r)
+        mypy.my_print(verbose-1, "r = "+str(r))
 
         origin = [(1./2)*bounds[0]+(1./2)*bounds[1],
                   (1./2)*bounds[2]+(1./2)*bounds[3],
@@ -61,16 +63,16 @@ def splitDomainBetweenEndoAndEpi(
         connectivity.Update()
 
         n_regions = connectivity.GetNumberOfExtractedRegions()
-        print "n_regions = "+str(n_regions)
+        mypy.my_print(verbose-1, "n_regions = "+str(n_regions))
         assert (n_regions in (1,2))
         if (n_regions == 1):
             continue
 
         pdata_clipped_domain = connectivity.GetOutput()
-        #print pdata_clipped_domain.GetNumberOfPoints()
-        #print pdata_clipped_domain.GetPointData().GetArray("RegionId")
+        #print(pdata_clipped_domain.GetNumberOfPoints())
+        #print(pdata_clipped_domain.GetPointData().GetArray("RegionId"))
         #for k_point in xrange(pdata_clipped_domain.GetNumberOfPoints()):
-            #print pdata_clipped_domain.GetPointData().GetArray("RegionId").GetTuple(k_point)
+            #print(pdata_clipped_domain.GetPointData().GetArray("RegionId").GetTuple(k_point))
         #myvtk.writePData(pdata_clipped_domain, "pdata_clipped_domain1.vtk")
 
         threshold = vtk.vtkThreshold()
@@ -83,18 +85,18 @@ def splitDomainBetweenEndoAndEpi(
         threshold.ThresholdByLower(0.5)
         threshold.Update()
         ugrid1 = threshold.GetOutput()
-        #print ugrid1.GetNumberOfPoints()
+        #print(ugrid1.GetNumberOfPoints())
         #myvtk.writeUGrid(ugrid1, "ugrid1.vtk")
         pdata1 = myvtk.ugrid2pdata(ugrid1)
-        #print pdata1.GetNumberOfPoints()
+        #print(pdata1.GetNumberOfPoints())
         #myvtk.writePData(pdata1, "pdata1.vtk")
 
         threshold.ThresholdByUpper(0.5)
         threshold.Update()
         ugrid2 = threshold.GetOutput()
-        #print ugrid2.GetNumberOfPoints()
+        #print(ugrid2.GetNumberOfPoints())
         pdata2 = myvtk.ugrid2pdata(ugrid2)
-        #print pdata2.GetNumberOfPoints()
+        #print(pdata2.GetNumberOfPoints())
 
         if (myvtk.getPDataSurfaceArea(pdata1) < myvtk.getPDataSurfaceArea(pdata2)):
             return pdata1, pdata2

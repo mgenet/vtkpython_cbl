@@ -30,13 +30,13 @@ def getABPointsFromTTTSectors(
 
     n_csects = 12
     n_rsects = 3
-    n_slices = n_points / (n_rsects+1) / (n_csects+1)
+    n_slices = n_points // (n_rsects+1) // (n_csects+1)
     mypy.my_print(verbose-1, "n_slices =", n_slices)
 
     zmin = ugrid_sectors.GetPoint(0)[2]
     zmax = ugrid_sectors.GetPoint(ugrid_sectors.GetNumberOfPoints()-1)[2]
 
-    dist_btw_slices = abs(zmin-zmax)/(n_slices-1)
+    dist_btw_slices = abs(zmin-zmax) / (n_slices-1)
     mypy.my_print(verbose-1, "dist_btw_slices =", dist_btw_slices)
 
     A = ugrid_sectors.GetPoints().GetPoint(0)
@@ -44,16 +44,16 @@ def getABPointsFromTTTSectors(
     C = ugrid_sectors.GetPoints().GetPoint(3)
     D = ugrid_sectors.GetPoints().GetPoint(9)
 
-    #print A
-    #print B
-    #print C
-    #print D
+    #print(A)
+    #print(B)
+    #print(C)
+    #print(D)
 
     Px = ((A[0]*B[1]-A[1]*B[0])*(C[0]-D[0])-(A[0]-B[0])*(C[0]*D[1]-C[1]*D[0]))/((A[0]-B[0])*(C[1]-D[1])-(A[1]-B[1])*(C[0]-D[0]))
     Py = ((A[0]*B[1]-A[1]*B[0])*(C[1]-D[1])-(A[1]-B[1])*(C[0]*D[1]-C[1]*D[0]))/((A[0]-B[0])*(C[1]-D[1])-(A[1]-B[1])*(C[0]-D[0]))
 
-    #print Px
-    #print Py
+    #print(Px)
+    #print(Py)
 
     A = [Px, Py, zmin]
     B = [Px, Py, zmax]
@@ -77,6 +77,3 @@ def getABPointsFromTTTSectors(
     AB_ugrid.SetCells(vtk.VTK_VERTEX, cells_AB)
 
     return points_AB
-
-
-

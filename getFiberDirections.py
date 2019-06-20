@@ -10,6 +10,8 @@
 ###                                                                  ###
 ########################################################################
 
+from builtins import *
+
 import math
 import random
 import numpy
@@ -42,7 +44,7 @@ def getFiberDirections(
     eRR = numpy.empty(3)
     eCC = numpy.empty(3)
     eLL = numpy.empty(3)
-    for k_tuple in xrange(n_tuples):
+    for k_tuple in range(n_tuples):
         farray_eRR.GetTuple(k_tuple, eRR)
         farray_eCC.GetTuple(k_tuple, eCC)
         farray_eLL.GetTuple(k_tuple, eLL)
@@ -57,10 +59,10 @@ def getFiberDirections(
         angle_helix = farray_angle_helix.GetTuple1(k_tuple)
         if (angles_in_degrees): angle_helix = angle_helix*math.pi/180
         eF = math.cos(angle_helix) * eCC + math.sin(angle_helix) * eLL
-        #print "eF = "+str(eF)
+        #print("eF = "+str(eF))
         if (shuffle_vectors):
             eF *= random.choice([-1,+1])
-            #print "eF = "+str(eF)
+            #print("eF = "+str(eF))
         if (use_new_definition):
             eN = eRR
             if (shuffle_vectors):
