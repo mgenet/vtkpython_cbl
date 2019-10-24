@@ -11,8 +11,6 @@
 ###                                                                  ###
 ########################################################################
 
-from builtins import range
-
 import argparse
 import numpy
 
@@ -91,7 +89,7 @@ if (__name__ == "__main__"):
         verbose=args.verbose-1)
 
     cbl.addSectorsToBiV(
-        ugrid_mesh=ugrid_mesh,
+        ugrid=ugrid_mesh,
         n_r=args.n_sectors_r,
         n_c=args.n_sectors_c,
         n_l=args.n_sectors_l,
