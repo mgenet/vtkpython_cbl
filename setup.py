@@ -1,8 +1,13 @@
+import datetime
+import os
 import setuptools
+
+# version = os.environ['CI_COMMIT_TAG']
+version = datetime.date.today().strftime("%Y.%m.%d")
 
 setuptools.setup(
     name="vtkpython_cbl",
-    version="2021.01.05",
+    version=version,
     author="Martin Genet",
     author_email="martin.genet@polytechnique.edu",
     description=open("README.md", "r").readlines()[1][:-1],
@@ -19,7 +24,9 @@ setuptools.setup(
     install_requires=["numpy", "vtk", "myPythonLibrary", "myVTKPythonLibrary"],
 )
 
-# python -m keyring set https://upload.pypi.org/legacy/ username
+# keyring set https://upload.pypi.org/legacy martin.genet
+# keyring set https://upload.pypi.org martin.genet
 
 # python setup.py sdist bdist_wheel
-# python -m twine upload dist/*
+
+# twine upload dist/*
