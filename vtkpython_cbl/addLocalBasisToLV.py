@@ -62,6 +62,10 @@ if (__name__ == "__main__"):
             mesh=pdata_epi,
             AB=[0,0,1],
             verbose=args.verbose-1)
+    elif (args.getABPointsFrom == "OrientedBoundingBox"):
+        points_AB = cbl.getABPointsFromOrientedBoundingBox(
+            mesh=pdata_epi,
+            verbose=args.verbose-1)
     else:
         assert (0)
 
