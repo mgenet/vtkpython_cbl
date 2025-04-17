@@ -11,12 +11,10 @@
 ###                                                                  ###
 ########################################################################
 
-from builtins import range
-
 import argparse
 import numpy
 
-import myPythonLibrary as mypy
+import myPythonLibrary    as mypy
 import myVTKPythonLibrary as myvtk
 
 import vtkpython_cbl as cbl
